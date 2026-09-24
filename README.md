@@ -16,11 +16,26 @@ Com isso, a universidade pode propor projetos de P&D financiados por empresas, q
 ```
 Dor de mercado  →  Busca vetorial nos perfis  →  Docentes e setores ranqueados  →  Justificativa por IA
 ```
+## MAPEAMENTO DE UM CENTRO DE ENSINO DA UFRB
 
-1. O sistema coleta do site do CETEC as áreas e os docentes, e depois as publicações de cada um.
-2. Uma LLM lê as publicações e escreve um perfil de competências para cada docente.
-3. Os perfis são convertidos em vetores e indexados.
-4. Quando recebe uma dor, o sistema busca os perfis mais próximos e a LLM explica por que cada docente foi indicado.
+  1. O sistema coleta do site do CETEC as áreas de conhecimento e os docentes de cada área de conhecimento, realizando uma busca por trabalhos realizados de cada docente.
+  2. A partir dos trabalhos de cada docente uma LLM, redigirá um portfólio com as atividades realizadas.
+  3. A partir dos portfólios dos docentes, é possível a criação de um portfólio da área de conhecimento, e posteriormente do centro de ensino. Mapeando o know-how da comunidade acadêmica para atendimento de projetos da indústria.
+
+## MAPEAMENTO DAS NECESSIDADES DA INDÚSTRIA
+  1. A partir de relatórios ESG anuais, é possível verificar as metas do setor industrial para o próximo ano. A partir dessas metas é   possível identificar oportunidades de projetos visando a melhoria para o setor.
+  2. Extrair oportunidades dos relatórios de um setor industrial.
+  3. Listar atributos técnicos necessários para o atendimento as oportunidades identificadas.
+  4. Identificar empresas de cada um desses setores.
+     
+
+## LIGAÇÃO INDÚSTRIA - UNIVERSIDADE
+  1. Identificar áreas de conhecimento da universidade com atributos técnicos necessários para o atendimento das oportunidades da indústria.
+  2. Escrita de pré-projeto que envolva a oportunidade identificada.
+  3. Montagem de potencial equipe nas áreas de conhecimento que possam atender ao pré-projeto.
+  4. Promover o contato com empresas do setor industrial com potencial interesse no pré-projeto.
+
+     
 
 ## Roadmap
 
