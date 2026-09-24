@@ -10,8 +10,7 @@ Sistema que recebe uma dor de mercado e indica quais setores e docentes do CETEC
 
 A UFRB não tem um setor que busque recursos privados para pesquisa. O Ponte CETEC usa IA para fazer parte desse trabalho. A partir de uma dor de mercado, como as que aparecem nos relatórios ESG de grandes empresas, o sistema aponta os setores e docentes do CETEC com experiência no assunto.
 
-Com isso, a universidade pode propor projetos de P&D financiados por empresas, que permitem abater o investimento do imposto de renda pela Lei do Bem. O dinheiro desses projetos paga bolsas, equipes e laboratórios.
-
+Com isso, a universidade pode propor projetos de P&D financiados por empresas, que visam resolver problemas dos setores da Indústria.
 ### Como funciona
 
 ```
