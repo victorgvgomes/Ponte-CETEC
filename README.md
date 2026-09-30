@@ -8,9 +8,9 @@ Sistema que recebe uma dor de mercado e indica quais setores e docentes do CETEC
 
 ## Sobre o projeto
 
-A UFRB não tem um setor que busque recursos privados para pesquisa. O Ponte CETEC usa IA para fazer parte desse trabalho. A partir de uma dor de mercado, como as que aparecem nos relatórios ESG de grandes empresas, o sistema aponta os setores e docentes do CETEC com experiência no assunto.
+A UFRB não tem um setor dedicado à captação de recursos privados para pesquisa. O Ponte CETEC usa IA para fazer parte desse trabalho. A partir de uma dor de mercado, como as que aparecem nos relatórios ESG de grandes empresas, o sistema aponta os setores e docentes do CETEC com experiência no assunto.
 
-Com isso, a universidade pode propor projetos de P&D financiados por empresas, que visam resolver problemas dos setores da Indústria.
+Com isso, a universidade pode propor projetos de P&D financiados por empresas, que visam a resolver problemas dos setores industriais.
 ### Como funciona
 
 ```
@@ -23,14 +23,14 @@ Dor de mercado  →  Busca vetorial nos perfis  →  Docentes e setores ranquead
   3. A partir dos portfólios dos docentes, é possível a criação de um portfólio da área de conhecimento, e posteriormente do centro de ensino. Mapeando o know-how da comunidade acadêmica para atendimento de projetos da indústria.
 
 ## MAPEAMENTO DAS NECESSIDADES DA INDÚSTRIA
-  1. A partir de relatórios ESG anuais, é possível verificar as metas do setor industrial para o próximo ano. A partir dessas metas é   possível identificar oportunidades de projetos visando a melhoria para o setor.
+  1. A partir de relatórios ESG anuais, é possível verificar as metas do setor industrial para o próximo ano. A partir dessas metas, é   possível identificar oportunidades de projetos visando à melhoria para o setor.
   2. Extrair oportunidades dos relatórios de um setor industrial.
-  3. Listar atributos técnicos necessários para o atendimento as oportunidades identificadas.
+  3. Listar atributos técnicos necessários para o atendimento às oportunidades identificadas.
   4. Identificar empresas de cada um desses setores.
      
 
 ## LIGAÇÃO INDÚSTRIA - UNIVERSIDADE
-  1. Identificar áreas de conhecimento da universidade com atributos técnicos necessários para o atendimento das oportunidades da indústria.
+  1. Identificar áreas de conhecimento da universidade com atributos técnicos necessários para o atendimento às oportunidades da indústria.
   2. Escrita de pré-projeto que envolva a oportunidade identificada.
   3. Montagem de potencial equipe nas áreas de conhecimento que possam atender ao pré-projeto.
   4. Promover o contato com empresas do setor industrial com potencial interesse no pré-projeto.
