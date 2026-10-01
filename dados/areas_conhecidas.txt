@@ -1,0 +1,9 @@
+Docentes Substitutos
+Área de Engenharia Civil - ECIV
+Área de Física - AFIS
+Área de Geociências - AGEO
+Área de Matemática e Estatística - AME
+Área de Química e Bioquímica - AQBQ
+Área de Sistemas Elétricos e Computacionais - SECOMP
+Área de Sistemas Mecânicos - SIMEC
+Área de Tecnologia Ambiental - ATAM
