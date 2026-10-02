@@ -17,7 +17,11 @@ CREATE TABLE IF NOT EXISTS areas (
 CREATE TABLE IF NOT EXISTS docentes (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     nome        TEXT NOT NULL,
+    siape       TEXT UNIQUE,
     area_id     INTEGER REFERENCES areas(id),
+    funcao      TEXT,
+    coordenador INTEGER DEFAULT 0,  -- 0 = não, 1 = sim
+    url_perfil  TEXT,
     email       TEXT,
     foto_url    TEXT,
     lattes_url  TEXT,
