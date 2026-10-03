@@ -1,2 +1,5 @@
 dados/*.db
+dados/*.csv
 .DS_Store
+.env
+__pycache__/
