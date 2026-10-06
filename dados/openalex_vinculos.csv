@@ -22,7 +22,7 @@
 13,Renê Medeiros de Souza,vinculado,Renê Medeiros de Souza,A5143765460,1.0,1.0,1.0,Universidade Federal do Recôncavo da Bahia
 14,Sérgio Santos de Jesus,rejeitado,Sérgio S. de Jesus,A5109855598,0.0,1.0,23.0,Universidade Federal do ABC
 15,Weiner Gustavo Silva Costa,vinculado,Weiner Gustavo Silva Costa,A5066372047,1.0,1.0,60.0,Universidade Federal do Recôncavo da Bahia
-16,Aldo Alfonso Raul Valcarce Bravo,não encontrado,,,,,,
+16,Aldo Alfonso Raul Valcarce Bravo,vinculado,A. A. R. Valcarce,A5040528710,0.0,0.0,47.0,
 17,André Luiz Moura Britto,vinculado,A. L. M. Britto,A5028025508,1.0,1.0,14.0,Universidade Federal da Bahia
 18,Ariston de Lima Cardoso,vinculado,Ariston de Lima Cardoso,A5021448818,1.0,1.0,28.0,Universidade Federal da Bahia
 18,Ariston de Lima Cardoso,vinculado,Ariston Lima Cardoso,A5053718346,1.0,1.0,6.0,Universidade Federal do Recôncavo da Bahia
@@ -34,7 +34,8 @@
 22,Jerre Cristiano Alves dos Santos,vinculado,J.C.A. Santos,A5072662417,1.0,1.0,34.0,Universidade Federal do Recôncavo da Bahia
 22,Jerre Cristiano Alves dos Santos,vinculado,Jerre  C. A. Santos,A5151181064,1.0,1.0,1.0,Universidade Federal do Recôncavo da Bahia
 23,Jilvan Lemos de Melo,vinculado,J. Lemos de Melo,A5053231967,1.0,1.0,14.0,Universidade Federal do Recôncavo da Bahia
-24,João Cláudio Costa Pereira,misto,João Pereira,A5028459243,1.0,0.0,53.0,
+24,João Cláudio Costa Pereira,vinculado,J.C.C. Pereira,A5074373429,1.0,1.0,1.0,
+24,João Cláudio Costa Pereira,rejeitado,João Pereira,A5028459243,1.0,0.0,53.0,
 25,Juliano Pereira Campos,vinculado,Juliano P. Campos,A5050653038,1.0,1.0,3.0,Universidade Federal do Recôncavo da Bahia
 25,Juliano Pereira Campos,vinculado,Juliano Pereira Campos,A5052701175,0.0,1.0,3.0,
 26,Karina Araújo Kodel,vinculado,Karina Araújo Kodel,A5018898603,0.0,1.0,4.0,Universidade Federal de Sergipe
@@ -81,7 +82,8 @@
 52,Eniel do Espírito Santo,vinculado,Eniel do Espírito Santo,A5156688952,0.0,1.0,1.0,
 53,Erikson Alexandre Fonseca dos Santos,vinculado,Erikson Alexandre Fonseca dos Santos,A5122524426,0.0,1.0,2.0,
 53,Erikson Alexandre Fonseca dos Santos,vinculado,Erikson Alexandre Fonseca dos Santos,A5059809767,0.0,1.0,1.0,
-54,Gilberto da Silva Pina,não encontrado,,,,,,
+54,Gilberto da Silva Pina,vinculado,Gilberto S. Pina,A5083535739,0.0,1.0,1.0,
+54,Gilberto da Silva Pina,vinculado,G. S. Pina,A5129029009,1.0,1.0,1.0,
 55,Givanildo Donizeti de Melo,vinculado,Givanildo Donizeti de Melo,A5037819485,1.0,1.0,6.0,
 56,João Tiago Assunção Gomes,vinculado,João Tiago Assunção Gomes,A5064143809,1.0,1.0,6.0,Universidade Federal do Recôncavo da Bahia
 57,Julianna Pinele Santos Porto,vinculado,Julianna Pinele Santos Porto,A5006694611,0.0,1.0,4.0,
@@ -118,7 +120,7 @@
 72,Antônio Augusto Oliveira Fonseca,vinculado,Antônio Augusto Oliveira Fonseca,A5153741467,0.0,1.0,1.0,
 73,Carlos Borges Filho,vinculado,Carlos Borges Filho,A5050065227,1.0,1.0,37.0,Universidade Federal do Recôncavo da Bahia
 73,Carlos Borges Filho,vinculado,Carlos Borges Filho,A5121073518,1.0,1.0,5.0,Universidade Federal do Recôncavo da Bahia
-73,Carlos Borges Filho,conferir,Carlos Filho Borges,A5060515185,0.0,1.0,1.0,
+73,Carlos Borges Filho,vinculado,Carlos Filho Borges,A5060515185,0.0,1.0,1.0,
 74,Clarivaldo Santos de Sousa,vinculado,Clarivaldo Santos de Sousa,A5007214317,0.0,1.0,5.0,
 74,Clarivaldo Santos de Sousa,vinculado,Clarivaldo Santos de Sousa,A5122675303,0.0,1.0,3.0,
 75,Daniele de Vasconcellos Santos Batista,vinculado,Daniele de Vasconcellos Santos Batista,A5044250053,1.0,1.0,6.0,Universidade Federal do Recôncavo da Bahia
@@ -162,12 +164,12 @@
 98,Luiz Carlos Simões Soares Júnior,vinculado,Luiz Carlos Simões Soares Júnior,A5075727864,1.0,1.0,13.0,Universidade Federal da Bahia
 98,Luiz Carlos Simões Soares Júnior,vinculado,Luiz Carlos Soares,A5089712801,1.0,0.0,4.0,Universidade Federal do Recôncavo da Bahia
 98,Luiz Carlos Simões Soares Júnior,vinculado,Luiz Carlos Simões Soares,A5140976178,1.0,1.0,1.0,Universidade Federal do Recôncavo da Bahia
-99,Moisés Araújo Oliveira,conferir,Moisés Araujo Oliveira,A5109749422,0.0,1.0,5.0,
+99,Moisés Araújo Oliveira,vinculado,Moisés Araujo Oliveira,A5109749422,0.0,1.0,5.0,
 100,Nilton Cardoso da Silva,vinculado,Nilton Cardoso Da Silva,A5054222059,0.0,1.0,2.0,Universidade Estadual Paulista (Unesp)
 101,Paulo Fábio Figueiredo Rocha,vinculado,Paulo Fábio F. Rocha,A5016561863,1.0,1.0,6.0,Universidade Federal do Recôncavo da Bahia
 101,Paulo Fábio Figueiredo Rocha,vinculado,PAULO Fábio Figueiredo Rocha,A5090557502,1.0,1.0,3.0,Universidade Federal de Minas Gerais
 102,Talison Augusto Correia de Melo,vinculado,T. A. C. Melo,A5048857941,0.0,1.0,11.0,Universidade Federal da Bahia
-103,Tassio Ferreira Valle,não encontrado,,,,,,
+103,Tassio Ferreira Valle,vinculado,Tassio Ferreira Vale,A5073246165,1.0,1.0,19.0,
 104,Tiago Palma Pagano,vinculado,Tiago Palma Pagano,A5051842648,1.0,1.0,15.0,Universidade Federal do Recôncavo da Bahia
 105,Abdon Tapia Tadeo,vinculado,Abdon Tapia Tadeo,A5069063205,1.0,1.0,5.0,Universidade Federal do Recôncavo da Bahia
 106,Carlos Alberto Tosta Machado,vinculado,Carlos Alberto Tosta Machado,A5102713172,0.0,1.0,13.0,Serviço Nacional de Aprendizagem Industrial
@@ -217,7 +219,7 @@
 128,Selma Cristina da Silva,rejeitado,Selma Cristina da Silva,A5060468308,0.0,1.0,1.0,
 129,Aline de Oliveira Moreira,rejeitado,Aline de Oliveira Moreira,A5082271514,0.0,1.0,4.0,
 130,Filipe Luigi Dantas Lima Santos,vinculado,Filipe Luigi Dantas Lima Santos,A5049437243,0.0,1.0,10.0,
-131,Flávio Silva Santos,conferir,Flávio Silva Santos,A5074422924,0.0,1.0,2.0,Universidade Federal da Bahia
+131,Flávio Silva Santos,vinculado,Flávio Silva Santos,A5074422924,0.0,1.0,2.0,Universidade Federal da Bahia
 132,Gislana Santana Machado,vinculado,Gislana Santana Machado,A5074809588,0.0,1.0,3.0,Serviço Nacional de Aprendizagem Industrial
 133,Inacio Oliveira Borges,vinculado,Inácio Oliveira Borges,A5129026272,0.0,1.0,1.0,Universidade Salvador
 134,Silvio de Cerqueira Mazza,vinculado,Sílvio de Cerqueira Mazza,A5044685289,0.0,1.0,2.0,Instituto Federal da Bahia
