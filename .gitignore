@@ -2,4 +2,4 @@ dados/*.db
 dados/*.csv
 .DS_Store
 .env
-__pycache__/
+__pycache__/dados/scholar_openalex_cache.json

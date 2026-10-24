@@ -8,17 +8,21 @@ Trabalho realizado de 1 a 6 de outubro de 2026.
 | Indicador | Valor |
 |---|---|
 | Docentes do CETEC na base | 136 |
-| Docentes com publicações no banco | 129 (95%) |
+| Docentes com publicações no banco | 127 (93%) |
 | Docentes com ao menos um perfil vinculado | 127 |
 | Perfis da OpenAlex vinculados | 205 |
 | Perfis rejeitados | 14 (listados na seção 3.2) |
 | Perfis mistos (não baixados automaticamente) | 2 |
 | Publicações no banco antes da auditoria | 1.987 |
 | Trabalhos de homônimos excluídos | 45, de 12 docentes (seções 3.8 e 3.9) |
+| Trabalhos excluídos na conferência de poucas publicações | 7, de 5 docentes (seção 3.10) |
+| Trabalhos excluídos na triagem por semelhança | 12, de 9 docentes (seção 3.12) |
+| Publicações no banco após as exclusões de 10/10/2026 | 1.956 |
+| Publicações que entram nos perfis, após as triagens | 1.762 |
 | Docentes com ORCID confirmado | 60 (seção 3.9) |
 | Publicações confirmadas pelo ORCID | 688 |
 | Publicações incluídas a partir do ORCID | 29 |
-| Docentes sem nenhuma publicação na base | 7 |
+| Docentes sem nenhuma publicação na base | 9 |
 
 Na primeira versão do script, apenas 60 docentes (44%) eram vinculados
 automaticamente. O ganho veio de três mudanças: buscar também fora do filtro da
@@ -331,7 +335,7 @@ Trabalhos avaliados e não incluídos:
 - Dez trabalhos de 2002 a 2011 ligados ao ORCID de José Hidalgo Suárez: são de
   outro autor ("J.J. Suárez"), a quem a OpenAlex atribuiu o ORCID por engano.
 
-### 3.7 Docentes sem publicações na base (7)
+### 3.7 Docentes sem publicações na base (9)
 
 | Docente | Situação |
 |---|---|
@@ -342,8 +346,10 @@ Trabalhos avaliados e não incluídos:
 | Aline de Oliveira Moreira | Dissertação e TCC não indexados |
 | Sérgio Santos de Jesus | Dissertação e trabalhos de congresso não indexados |
 | Elaine Ferreira Rocha | Só perfil misto, sem trabalho com afiliação UFRB; em espera |
+| Inacio Oliveira Borges | Único trabalho excluído na conferência de 09/10/2026 (seção 3.10) |
+| Silvio de Cerqueira Mazza | Os dois trabalhos excluídos na conferência de 09/10/2026 (seção 3.10) |
 
-Para os cinco primeiros, "nenhuma publicação encontrada" significa que as
+Para os 4 primeiros, "nenhuma publicação encontrada" significa que as
 buscas por nome não retornaram nada. Não foi possível testar por DOI, porque
 não se achou nenhuma publicação deles em fontes abertas. Não é prova de que
 não tenham produção.
@@ -485,11 +491,520 @@ Sérgio de Souza Almeida (1) e Carlos Borges Filho (1).
 Nenhuma obra de um ORCID confirmado estava na lista de bloqueio da auditoria.
 As exclusões feitas não foram contrariadas por essa segunda fonte.
 
+### 3.10 Conferência dos docentes com poucas publicações (09/10/2026)
+
+Feita no início da Etapa 4, antes da geração dos perfis de competência.
+
+**Critério.** Docentes com até 3 publicações na base e nenhuma confirmada pelo
+ORCID: 30 docentes e 60 publicações. É um critério de risco: com tão pouco
+material, um único trabalho de homônimo dominaria o perfil, e a triagem por
+semelhança de conteúdo não funciona. Oito desses docentes já tinham sido
+conferidos na Etapa 3 (Andrêssa, José Hidalgo, João Cláudio, Gilberto Pina,
+Danilo, Flávio, Nilton e Celso), e suas 14 publicações não foram reabertas.
+Renê Medeiros de Souza, conferido no Lattes na auditoria (seção 3.8), foi
+conferido de novo.
+
+**Método.** Para cada docente, os títulos foram comparados com o Lattes ou com
+o Escavador, que replica o Lattes; em alguns casos, com a coautoria de outros
+docentes do CETEC e com a afiliação declarada no trabalho. As decisões e a
+fonte de cada uma estão em `dados/conferir_poucas_publicacoes.csv`, colunas
+`e_do_docente` e `observacao`.
+
+**Resultado: 46 publicações de 22 docentes.**
+
+| Decisão | Publicações |
+|---|---|
+| sim | 39 (85%) |
+| não | 7 (15%) |
+
+Dezessete dos 22 docentes tiveram todas as publicações confirmadas. Fontes das
+confirmações: Escavador na maioria; Lattes; coautoria com docentes do CETEC
+(Balbino José da Silva Pomponet Filho).
+
+A taxa de 85% vale para este grupo, escolhido por ser o de maior risco, e não
+deve ser estendida à base inteira. Os vínculos desses docentes vieram em parte
+do script e em parte da aprovação em bloco da seção 3.1.
+
+**Trabalhos marcados como não sendo do docente (7).**
+
+| docente_id | Docente | Trabalho | Evidência |
+|---|---|---|---|
+| 3 | Carlos Frederico Macedo Cortês | W4402031261, W4402258293 | não constam nas fontes consultadas; são o mesmo trabalho em artigo e capítulo |
+| 133 | Inacio Oliveira Borges | W7135167129 | não consta nas fontes consultadas |
+| 112 | Janailson Oliveira Cavalcanti | W4404139295 | o trabalho declara afiliação à UFPE, sem relação com o currículo dele |
+| 63 | Marília Conceição de Souza Caceres | W2065899962 | não encontrado em nenhuma fonte, embora trabalhos mais recentes dela constem no Escavador |
+| 134 | Silvio de Cerqueira Mazza | W2587400349, W7215165680 | não constam nas fontes consultadas |
+
+Antes da decisão, foi levantada a hipótese de que os trabalhos de Carlos
+Frederico (estruturas de aço, mesma área da dissertação), Janailson (risco em
+óleo e gás, mesma linha do trabalho de 2016) e Marília (área da saúde, como os
+outros dois trabalhos dela) fossem dos docentes. Após nova consulta, as
+marcações foram mantidas. O preprint de 2025 de Gislana Santana Machado, de
+início marcado como não sendo dela, foi confirmado por tratar dos mesmos
+materiais do artigo dela de 2022.
+
+**Consequência.** Depois das exclusões, Inacio Oliveira Borges e Silvio de
+Cerqueira Mazza ficam sem nenhuma publicação, e os docentes sem publicação na
+base passam de 7 para 9.
+
+**Dúvida resolvida.** As duas publicações de José Valentim dos Santos Filho
+são o mesmo trabalho, de 2026, com dois registros no Zenodo. Ficaram de início
+em dúvida e foram confirmadas pela coautoria com Gabriel Marcolino Silva e
+Douglas Santos Moura, ligados à UFRB e ao CETEC. Nenhum dos dois consta na
+lista de docentes coletada do site do CETEC, e por isso a coautoria não
+aparece como trabalho-âncora no banco. Gabriel Marcolino Silva é estudante,
+o que explica a ausência; a situação de Douglas Santos Moura não foi
+verificada. Coautoria com estudantes do CETEC é evidência de vínculo, mas o
+banco não a detecta, porque só conhece os docentes.
+
+**Achados de passagem.**
+
+- Repetições que a comparação de títulos idênticos não pega: as duas
+  publicações de Erikson Alexandre Fonseca dos Santos são a mesma dissertação,
+  em português e em inglês, e as de José Valentim são dois registros do mesmo
+  trabalho. As duas de Nilton Cardoso da Silva também são o mesmo trabalho.
+- Vários desses docentes têm no Escavador muito mais trabalhos do que na base
+  (limitação G6, seção 4.16).
+- Não se mediu quantos docentes têm perfil no Google Acadêmico.
+
+### 3.11 Triagem de repetidos, títulos e resumos sem conteúdo (09/10/2026)
+
+Feita na Etapa 4, antes dos perfis de competência, pelo script
+`coleta/triagem_conteudo.py`. O script aponta os casos em
+`dados/triagem_conteudo.csv`; as decisões confirmadas na coluna `conferido`
+são gravadas pelo modo `--aplicar` na tabela `publicacoes_ajustes`. Nenhuma
+publicação sai da tabela `publicacoes`: os ajustes só decidem o que entra no
+prompt que gera o perfil.
+
+**Os três casos e as regras.**
+
+| Caso | Quando é apontado | Sugestão |
+|---|---|---|
+| repetido | mesmo docente, mesmo título (sem acentos, maiúsculas e pontuação) ou mesmo DOI | manter uma cópia por grupo; ignorar as outras |
+| título sem conteúdo | título genérico ("Apresentação", "Errata"), tipo `erratum`, ou título de até 4 palavras sem DOI e sem resumo útil | ignorar |
+| resumo sem conteúdo | resumo com menos de 100 caracteres, ou que começa com "Submitted by", "Orientador" ou "Texto completo" | manter o trabalho e usar só título e tópicos |
+
+Em cada grupo de repetidos, a cópia mantida é a que tem resumo útil; em
+empate, a confirmada pelo ORCID; depois, a que tem DOI; por fim, a que entrou
+primeiro no banco. Uma publicação que aparece em dois casos fica com a decisão
+mais forte (ignorar o trabalho vence ignorar só o resumo). Nos dados atuais,
+em nenhum grupo só parte das cópias era confirmada pelo ORCID (48 grupos com
+todas confirmadas, 85 com nenhuma), de modo que a escolha da cópia não afetou
+nenhuma confirmação.
+
+**Resultado.** 322 linhas conferidas, todas com decisão.
+
+| Caso | Apontados | Decisão |
+|---|---|---|
+| repetido | 133 grupos, 270 linhas | 137 cópias ignoradas |
+| título sem conteúdo | 13 | 7 títulos corrigidos pelo Lattes, 4 ignorados, 2 mantidos |
+| resumo sem conteúdo | 39 | 34 resumos ignorados, 5 mantidos |
+
+Depois da triagem, 1.828 das 1.968 publicações entram nos perfis; as demais
+continuam no banco.
+
+**Títulos corrigidos pelo Lattes (7).** Os registros tinham como título o
+nome da revista e, como resumo, só o número das páginas. O título verdadeiro
+foi buscado no Lattes do docente e gravado em `publicacoes_ajustes`, coluna
+`titulo_corrigido`, com a referência completa na observação. A tabela
+`publicacoes` mantém o título original do OpenAlex.
+
+| Docente | Revista | Título do Lattes |
+|---|---|---|
+| Mariese Conceição Alves dos Santos | BMC Immunology, 2013 | Blomia tropicalis Blo t 5 and Blo t 21 recombinant allergens might confer higher specificity to serodiagnostic assays than whole mite extract |
+| Sandra Maria Conceição Pinheiro | Public Health Nutrition, 2007 | Determinants of mild-to-moderate malnutrition in preschoolers in an urban area of Northeastern Brazil: a hierarchical approach |
+| Clarivaldo Santos de Sousa | Analytica Chimica Acta, 2001 | Effects of ultrasonic irradiation on the spectrophotometric determination of nickel with dimethylglyoxime |
+| Francisco de Souza Fadigas | Cadernos de Geociências, 2010 | Estimativa da concentração de metais pesados em solos dos tabuleiros do Recôncavo da Bahia |
+| Gilmara Fernandes Eça | Atlântica, 2009 | Distribuição de nutrientes dissolvidos e clorofila-a no estuário do rio Cachoeira, Nordeste do Brasil |
+| Sivanildo da Silva Borges | Ultrasonics, 2004 | Reagent Generation for Chemical Analysis assisted by Ultrasonic Irradiation |
+| Gildeberto de Souza Cardoso | Mathematical Problems in Engineering, 2011 | Analysis of Exact Linearization and Aproximate Feedback Linearization Techniques |
+
+Francisco de Souza Fadigas tinha dois registros "Cadernos de Geociências"
+(p. 1-11 e p. 1/9). Só o primeiro consta no Lattes; o outro foi ignorado, por
+ser outra versão do mesmo artigo ou um trabalho sem título identificável.
+
+**Mantidos apesar do apontamento.** "On Tverberg type theorems", dissertação
+de Carlos Henrique Felício Poncio, caiu na regra do título curto por não ter
+DOI e ter como "resumo" só o agradecimento à FAPESP; foi mantida. "Preço
+maduro", de Euzelina dos Santos Borges Inácio, também foi mantido. Entre os
+resumos, foram mantidos os que são trechos do resumo verdadeiro (por exemplo,
+"to formulate indicators and indices for urban stormwater management").
+
+**Autoria conferida.** A referência do artigo de Gildeberto de Souza Cardoso
+copiada de início mostrava só "SCHNITMAN, L."; conferido no Lattes, o docente
+é coautor, e a correção do título foi mantida.
+
+**Limites da triagem.**
+
+- Repetições com títulos diferentes, como a mesma dissertação em português e
+  em inglês (Erikson Alexandre Fonseca dos Santos), não são detectadas. Ficam
+  para a triagem por semelhança de conteúdo.
+- A regra do título curto confunde títulos legítimos com nomes de revista,
+  como no caso de Carlos Henrique; por isso toda sugestão passa por conferência.
+
+### 3.12 Triagem por semelhança de conteúdo (10/10/2026)
+
+Feita na Etapa 4 pelo script `coleta/triagem_embeddings.py`, que não altera o
+banco. O texto de cada publicação que entra nos perfis (título, ou título
+corrigido, mais o resumo útil; sem resumo, título, até 8 palavras-chave e até
+3 tópicos) é transformado num vetor pelo modelo `nomic-embed-text`, no Ollama.
+As publicações de cada docente são então comparadas entre si. Os vetores ficam
+em `dados/embeddings/` e só são recalculados quando o texto muda.
+
+**Calibração.** Os limites foram ajustados depois de uma primeira execução,
+olhando a distribuição das semelhanças e casos de resposta conhecida: os
+quatro docentes cuja produção foi revisada um a um (Vinicius Santos da Silva,
+Selma Cristina da Silva, Mário Sérgio de Souza Almeida e Felipe Andrade Torres)
+e a dissertação de Erikson Alexandre Fonseca dos Santos registrada em português
+e em inglês.
+
+| Critério | Primeira versão | Versão final | Motivo da mudança |
+|---|---|---|---|
+| Isolado (escore robusto da semelhança com os 3 vizinhos mais parecidos) | -2,5 | -3,0 | lista de 56 para cerca de 35 trabalhos |
+| Longe das obras confirmadas pelo ORCID | apontava sozinho | só informa | gerou apenas alarmes falsos nos quatro docentes conhecidos |
+| Repetição no mesmo idioma | semelhança 0,90 | 0,97 | com 0,90 saíam 573 pares, quase todos trabalhos diferentes do mesmo tema |
+| Tradução | não existia | títulos em idiomas diferentes, até 1 ano, semelhança 0,88 | o modelo dá notas menores entre idiomas |
+| Duas dissertações no mesmo período | não existia | mesmo docente, até 1 ano, sem exigir semelhança | o par de Erikson teve semelhança 0,71 |
+
+O idioma do título é identificado pelo script, contando palavras que só
+existem numa língua ("da", "com" para o português; "the", "of" para o inglês;
+"del", "los" para o espanhol). O campo de idioma do OpenAlex não serve para
+isso: ele informa a língua do texto, e uma dissertação em português com título
+em inglês aparece como "pt". Sem a detecção do título, o critério de tradução
+trazia 87 pares, 58 deles com os dois títulos na mesma língua.
+
+**Resultado da triagem de homônimos.** Na primeira rodada, 45 trabalhos
+apontados, de 34 docentes; nenhum dos quatro docentes conhecidos teve
+trabalho apontado. Depois que as repetições foram retiradas dos perfis, uma
+segunda análise apontou mais 11 trabalhos: sem a cópia repetida, o trabalho
+que ficou perdeu o "vizinho" que o fazia parecer acompanhado.
+
+| Decisão | 1ª rodada | 2ª rodada | Total |
+|---|---|---|---|
+| do docente | 34 | 10 | 44 |
+| não é do docente (excluídos) | 11 | 1 | 12, de 9 docentes |
+
+Trabalhos excluídos, com o comando `--excluir`:
+
+| docente_id | Docente | Trabalho | Tema |
+|---|---|---|---|
+| 84 | Acbal Rucas Andrade Achy | W3021502267 | incrustação em campos de petróleo offshore |
+| 41 | Adilson Gomes dos Santos | W7214802054 | pensão alimentícia entre ex-cônjuges |
+| 43 | Alex Santana dos Santos | W4290988382, W4402126039 | redes ópticas elásticas |
+| 106 | Carlos Alberto Tosta Machado | W3008540800 | veículo submarino autônomo |
+| 6 | Fernanda Nepomuceno Costa | W2336706901 | elementos-traço em peixes |
+| 93 | Joaquim Jorge Martins Galo | W2621195124 | dissertação sobre redes inteligentes |
+| 96 | Leonardo da Silva Lessa | W2893298749, W2292545202 | criptografia em redes ópticas; direção elétrica |
+| 66 | Pollyane Vieira da Silva | W4416254858 | parasitismo de vespas |
+| 40 | Thomas Vincent Gloaguen | W4367058711 | linha costeira do Mar Báltico |
+| 106 | Carlos Alberto Tosta Machado | W4396496919 | descomissionamento de estruturas offshore (2ª rodada) |
+
+Os dois trabalhos excluídos de Carlos Alberto Tosta Machado (o veículo
+submarino e o descomissionamento offshore) são de um homônimo que atua nos
+Estados Unidos. Os outros 12 trabalhos do docente, sobre óleos essenciais,
+destilação e gêmeo digital, são coerentes entre si.
+
+A dissertação de 2025 de Leonardo da Silva Lessa foi marcada de início como
+alheia e depois mantida: trata do mesmo tema da linha principal do docente
+(localização de faltas por ondas viajantes) e foi apontada só por estar em
+português, enquanto a maior parte da produção dele está em inglês. O trabalho
+de Cleidson Carneiro Guimarães sobre nanopartículas de prata ficou de início em
+dúvida e foi confirmado: um dos coautores parece ser o orientador de doutorado
+dele.
+
+Como na auditoria da Etapa 3, a maioria dos trabalhos que destoam da produção
+é mesmo do docente: 44 dos 56.
+
+**Resultado da triagem de repetições.** 94 pares apontados, mais 1
+acrescentado à mão: o artigo de Sandra Maria Conceição Pinheiro que tinha dois
+registros e passou a ter o mesmo título depois da correção da seção 3.11.
+
+| Critério | Pares | Eram o mesmo trabalho | Precisão |
+|---|---|---|---|
+| duas dissertações no mesmo período | 19 | 18 | 95% |
+| quase idênticos | 30 | 19 | 63% |
+| possível tradução | 45 | 16 | 36% |
+| acrescentado à mão | 1 | 1 | |
+| total | 95 | 54 | |
+
+O par de Pablo Pedreira Pedra sobre nanopartículas de CoFe2O4 foi reavaliado
+e marcado como o mesmo trabalho: o "agente quelante" do título em inglês é o
+"precursor orgânico" do título em português. Os quatro estudos de Eniel do
+Espírito Santo com a escala DigCompEdu foram mantidos como diferentes, porque
+avaliam grupos distintos de professores.
+
+O modo `--aplicar` do script gravou as 54 decisões em `publicacoes_ajustes`
+(caso `similar`): em cada grupo fica uma cópia, pela mesma regra da seção
+3.11, e as outras saem dos perfis. Em 8 casos a cópia que saiu tinha um ajuste
+anterior (resumo ignorado ou título corrigido), anotado na observação.
+
+Depois das duas triagens e das exclusões, o banco tem 1.956 publicações, das
+quais 1.762 entram nos perfis.
+
+**Fontes da conferência.** Escavador na maior parte dos casos. Trabalhos de
+2026 em geral ainda não constam no Lattes nem no Escavador; para eles, o
+artigo foi aberto pelo OpenAlex e conferida a afiliação ou a menção à UFRB e
+ao CETEC.
+
+**Limites.**
+
+- O `nomic-embed-text` foi treinado sobretudo em inglês e compara mal textos
+  em idiomas diferentes. Trabalhos em português num conjunto em inglês tendem
+  a parecer isolados (caso de Leonardo), e traduções de artigos com títulos
+  curtos e sem resumo podem não ser encontradas.
+- A triagem de homônimos só vale para docentes com 4 ou mais publicações; os
+  com até 3 foram conferidos à mão (seção 3.10).
+- Um homônimo com vários trabalhos parecidos entre si não fica isolado e pode
+  passar despercebido.
+- Retirar repetições muda as medidas de isolamento; por isso a triagem de
+  homônimos foi refeita depois de aplicar as repetições.
+
+**Conferência posterior (12/10/2026).** No piloto dos perfis, os dois
+capítulos de 2025 sobre análise de fósforo no solo atribuídos a Maria Amelia
+de Pinho Barbosa Hohlenwerger (W4416598312, W4416598343), sem ORCID, pareciam
+fora da produção em matemática dela. Conferidos pelo usuário: são dela.
+Ficam na base. O caso mostra que um trabalho fora da área habitual do
+docente não indica, por si só, homônimo: a conferência humana continua
+necessária.
+
+### 3.13 Piloto dos perfis de competência (12/10/2026)
+
+**Objetivo.** Antes de gerar os perfis de todos os docentes, testar o prompt
+e o modelo em poucos casos e conferir o resultado à mão. O piloto não grava no
+banco: os resultados ficam em `dados/perfis_piloto/`, um JSON com o registro
+completo (data, modelo, prompt, parâmetros, respostas) e um CSV para a
+conferência, com as colunas `faz_sentido` e `observacao`.
+
+**Docentes do piloto (7).** Vinicius Santos da Silva (82), Selma Cristina da
+Silva (128), Mário Sérgio de Souza Almeida (11) e Felipe Andrade Torres (109),
+de produção conhecida; Eniel do Espírito Santo (52), o de maior volume (91
+publicações); Tassio Gabriel Ribeiro Lopes (136), com material limitado (2
+publicações, 1 com conteúdo); Maria Amelia de Pinho Barbosa Hohlenwerger (61),
+de matemática pura.
+
+**Variantes comparadas.** O mesmo prompt e os mesmos docentes, mudando uma
+coisa por vez:
+
+| Variante | Modelo | Exemplos no prompt | Pergunta que responde |
+|---|---|---|---|
+| 1 | gemma3:4b | com | (referência) |
+| 2 | gemma3:4b | sem | Os exemplos ajudam ou levam o modelo a imitar? (1 contra 2) |
+| 3 | llama3.2 (3b) | com | Qual modelo é melhor com o mesmo prompt? (1 contra 3) |
+
+Os exemplos são três pares de áreas que não existem no CETEC (cardiologia,
+odontologia, oftalmologia), que mostram a diferença entre uma área genérica e
+uma competência concreta. O script descarta competências parecidas com eles.
+Modelos maiores não foram testados: o computador tem 8 GB de memória.
+
+Parâmetros fixos: contexto de 8192 tokens, temperatura 0 na primeira tentativa
+e 0,3 nas outras duas, semente 42, resumo de cada publicação cortado em 400
+caracteres. Docentes com material acima de 5000 tokens são processados em
+lotes de até 4000 tokens, com uma chamada final que junta os perfis parciais.
+
+**Rodada 1 (gemma3:4b, com exemplos).** 6 perfis gerados, 1 falha, 19 min 42 s.
+Arquivos: `gemma3-4b_com-exemplos_rodada1.csv` e `.json`.
+
+- As competências de Mário, Felipe e Vinicius batem com a produção conhecida e
+  citam trabalhos corretos. Nenhuma competência citou trabalho de fora do
+  docente nem copiou os exemplos.
+- **Selma falhou** nas 3 tentativas, repetida numa segunda execução: o modelo
+  escrevia o resumo e devolvia a lista de competências vazia.
+- **Eixos e tipos de dor marcados demais**: Eniel recebeu os 5 eixos e os 4
+  tipos de dor; Maria Amelia, de matemática pura, recebeu "processos".
+- **Competências repetidas com outras palavras**, citando quase os mesmos
+  trabalhos (Vinicius: "catálise biomimética" e "porfirinas de manganês").
+- **A junção dos lotes perdeu temas**: as 8 competências finais de Eniel citam
+  só trabalhos do lote 1; MOOCs, tutoria em EAD, videoaulas e os trabalhos de
+  2025–2026, que estavam nos lotes 2 a 4, sumiram. Os lotes são cortados na
+  ordem do banco, sem olhar o assunto.
+- Os capítulos sobre fósforo no solo de Maria Amelia pareciam de outra pessoa;
+  o usuário conferiu e são dela (seção 3.12).
+
+**Mudanças feitas depois da rodada 1.**
+
+1. O modelo escreve as competências antes do resumo, e o formato exige ao
+   menos 1 competência (causa provável da falha da Selma).
+2. Eixo e tipos de dor passam a ser dados por competência. Os do docente são
+   calculados pelo script: um eixo entra se as competências daquele eixo
+   somarem pelo menos 2 trabalhos diferentes. Se nenhum chegar a 2, como nos
+   docentes de material limitado, entram todos os citados.
+3. Regra no prompt contra repetir a mesma competência com outras palavras, e
+   aviso do script quando uma competência repete 80% dos trabalhos de outra.
+4. A resposta recusada passa a ser guardada no JSON, para entender as falhas.
+
+**Rodada 2 (as 3 variantes, com as mudanças acima).** Em andamento. Por
+decisão do usuário, as correções da junção dos lotes (lotes por assunto e
+aviso de publicações não citadas) ficam para depois desta rodada, para decidir
+com os resultados das 3 variantes.
+
+### 3.14 Google Acadêmico: perfis, validação pelos títulos e publicações novas (22/10/2026)
+
+**Objetivo.** Complementar a OpenAlex com o Google Acadêmico, a pedido do
+orientador. Script: `coleta/scholar.py` (não grava no banco; tudo sai em CSV).
+
+**Como a coleta foi feita.** O acesso automático ao Google Acadêmico foi
+bloqueado (CAPTCHA logo no primeiro acesso e exigência de login, que o Google
+não aceita em navegador controlado por robô). A listagem dos perfis e a coleta
+das publicações foram feitas pelo Claude no Chrome do usuário, já logado, com
+pausas de 3 a 7 segundos entre as páginas. Os CSVs gerados seguem o formato do
+script, que faz o cruzamento e a validação.
+
+**Números.**
+- 484 perfis com e-mail confirmado em ufrb.edu.br (`scholar_perfis_ufrb.csv`).
+- Cruzamento com os 136 docentes do CETEC: 45 com perfil (40 com nome igual,
+  5 com nome abreviado); 91 sem perfil encontrado (`scholar_vinculos.csv`).
+- Os 45 foram marcados `vincular` para a coleta, que trouxe 1.515 publicações e
+  as métricas de cada perfil (`scholar_publicacoes.csv`, `scholar_metricas.csv`).
+
+**Proteção contra homônimos (4 camadas).** (1) só perfis com e-mail da UFRB
+confirmado; (2) nome comparado com a lista do CETEC; (3) confirmação do usuário
+para coletar; (4) `validar`: os títulos do Google Acadêmico são comparados com
+as publicações do docente já validadas no banco (OpenAlex + ORCID). Com pelo
+menos 2 títulos em comum, o perfil é CONFIRMADO. Resultado: 40 CONFIRMADOS,
+5 A_CONFERIR, 0 SEM_BASE (`scholar_validacao.csv`).
+
+**Decisão manual: os 5 A_CONFERIR foram confirmados.** Danívio Batista Carvalho
+de Vasconcellos, José Valentim dos Santos Filho, Vânio Vicente Santos de Souza,
+Erikson Alexandre Fonseca dos Santos e Paulo Henrique Ribeiro do Nascimento.
+Motivo: todos têm só 1 ou 2 publicações no banco, então o teste não tinha base
+para chegar a 2 títulos em comum; a falha é de base, não indício de homônimo.
+Área, afiliação e tipo de trabalho são compatíveis com o CETEC (José Valentim
+declara "Professor CETEC-UFRB" no perfil; Erikson e Paulo Henrique têm 1 título
+igual ao banco). Registrado na coluna `decisao_manual`, que o `validar` mantém
+ao rodar de novo.
+
+**Publicações novas.** Dos perfis confirmados (40 + 5), 726 publicações não
+estão no banco (`scholar_publicacoes_novas.csv`, títulos repetidos no mesmo
+perfil contados uma vez). Ainda não entraram no banco: a coluna `decisao` é
+para a conferência, que pode passar pela triagem por embeddings. Exemplo:
+José Valentim tinha 2 publicações no banco e ganha 22 candidatas.
+
+**Triagem das 726 publicações novas (23/10/2026).** Script
+`coleta/triagem_scholar.py`, que aplica às publicações do Google Acadêmico as
+mesmas regras já usadas no banco, item por item, porque confirmar o perfil não
+garante que cada item dele seja do docente (o Google acrescenta trabalhos
+sozinho). Seis checagens, nesta ordem:
+
+| Apontamento | Regra | Apontados | Sugestão |
+|---|---|---|---|
+| ja_excluido | título de trabalho já excluído antes como homônimo do docente (tabela `publicacoes_excluidas`, títulos buscados na OpenAlex e guardados em `dados/excluidas_titulos.csv`) | 4 | ignorar |
+| sem_conteudo | regras da seção 3.11 (título genérico, curto, o próprio nome do docente, metadado) | 23 | ignorar |
+| ja_no_banco | mesmo trabalho de uma publicação do banco, com outro título ou idioma (embeddings, limites da seção 3.12) | 30 | ignorar |
+| repetido | mesmo trabalho de outra publicação nova do docente | 9 | ignorar |
+| destoa | assunto isolado da produção do docente: possível homônimo (escore ≤ -3,0, seção 3.12) | 34 | conferir |
+| autoria | o nome do docente não aparece entre os autores | 30 | conferir |
+
+Uma das 64 obras excluídas antes (W4287018518) não existe mais na OpenAlex e
+ficou sem título para comparar. A comparação por embeddings usou só títulos,
+porque o Google Acadêmico não traz resumo; o escore de isolamento ficou abaixo
+de -2,96 em 5% das publicações novas (no banco, cerca de 2% eram apontadas).
+
+**Conferência manual.** O usuário revisou a triagem numa planilha e conferiu os
+casos no Lattes. Resultado final, em `dados/triagem_scholar.csv`:
+
+| Decisão | Qtd. |
+|---|---|
+| incluir | 627 (599 sem apontamento, aprovadas em bloco; 28 conferidas) |
+| ignorar | 86 |
+| orientacao | 13 |
+
+- **Homônimos e trabalhos sem o docente (28, removidos na planilha):** André
+  Dias de Azevedo Neto (11: osteoporose, varizes esofágicas, espectroscopia
+  gama, duas de antenas, UTI, radiologia, micorrizas em aceroleira (2),
+  Crotalaria e Centropomus); Jaildo Santos Pereira (3: leishmaniose, Furnas,
+  câncer cervical); Jânia Betânia Alves da Silva (3, de "J Silva"); Ivanoé João
+  Rodowanski (2: gestão de cooperativa, livro de biorreatores); Vinicius Santos
+  da Silva (2, Revista JOPIC, já excluídos antes); e um de cada: Eniel (via
+  férrea), Fernanda Nepomuceno (veículos autônomos), Mário Sérgio (energia
+  solar em shoppings), Márcia Cazetta (algas perifíticas), Cleidson (currículo),
+  Anaxsandra (limpeza hospitalar), Marcus Vinícius Ivo (banco de leite).
+- **Perfil misturado:** o perfil de André Dias de Azevedo Neto no Google
+  Acadêmico junta trabalhos de outros "AD Neto" (medicina, engenharia
+  elétrica); a lista dele foi conferida inteira, não aprovada em bloco.
+- **Falsos "mesmo trabalho" (10 casos conferidos):** a comparação só por
+  título juntou trabalhos diferentes de títulos parecidos. Decididos como
+  outro trabalho, e incluídos: III-090 e III-084 (Anaxsandra e Lidiane),
+  pigmentos em girassol (André), modelo pedagógico virtual UFRB (Ariston e
+  Eniel), autorreflexão das competências digitais (Eniel), aspectos
+  hidrográficos e geomorfologia da Serra da Jiboia (Thomas, ambos no Lattes).
+  Ignorados: "EAD e ensino remoto emergencial: aproximações e distanciamentos"
+  (Eniel, mesmo trabalho de "convergências e divergências") e a flambagem
+  lateral de viga (Paulo Henrique, não consta no Lattes; só a de coluna).
+- **Falsos "destoa":** trabalhos do próprio docente em uma segunda linha de
+  pesquisa, ou de docentes com pouca base no banco, foram apontados e mantidos
+  (por exemplo, José Valentim em redes e telecomunicações; Paulo Fábio em
+  potenciais evocados auditivos, tema que já tem no banco).
+- **Orientações (13):** trabalhos de alunos orientados pelo docente, que o
+  Google atribui ao orientador (um só autor, que não é o docente; registro na
+  UFRB). Não entram como publicação: ficam na tabela `orientacoes`, para uso
+  eventual com peso menor nos perfis.
+- Divergência resolvida: nos 10 casos acima, as observações da planilha diziam
+  "mantém ignorar"; valeram as respostas dadas depois, na conversa.
+
+**Gravação no banco.** `python coleta/triagem_scholar.py --aplicar`. As
+publicações entram com `fonte = 'scholar'` e um código próprio no campo
+`openalex_id` ("GS-" + 12 caracteres, fixo para o mesmo docente e título), para
+que as triagens e o `--excluir` de `openalex_publicacoes.py` funcionem com
+elas. Entram só título e ano: o Google não traz resumo, DOI, tipo nem tópicos.
+Antes da primeira gravação, o banco é copiado para
+`dados/ponte_cetec_antes_scholar.db`.
+
+**Erro da aprovação em bloco e regra acrescentada.** A aprovação em bloco
+(`--aprovar-sem-apontamento`) marcou como incluir as 602 publicações que a
+triagem não apontou. Ela confia na triagem: o que nenhuma das seis regras sabe
+reconhecer passa. Na conferência das aprovadas, três títulos eram, na verdade,
+nome de evento ou revista ("14º Congresso Brasileiro de Geologia de
+Engenharia e Ambiental", "Revista de Engenharia Civil IMED", "Encontro de
+Outono da SBF 2018/ID: 550-1"). A regra de título sem conteúdo passou a
+apontar títulos que começam com congresso, simpósio, encontro, seminário,
+revista, journal etc., ou que trazem um "ID" numérico. Os três foram mudados
+para ignorar (decisão do usuário). Erro que restou na aprovação em bloco:
+3 de 602 (0,5%), a registrar no TCC como medida do que a triagem automática
+deixa passar.
+
+**Busca do resumo na OpenAlex (23/10/2026, em andamento).** As 627
+publicações vindas do Google Acadêmico só têm título. O script
+`coleta/scholar_openalex.py` procura cada título na OpenAlex (primeiro só no
+campo título; se nada voltar, numa busca ampla em título, resumo e texto) e
+aceita o resultado só com título igual, ano compatível (até 1 ano) e, para a
+sugestão "usar", o docente entre os autores. Resultado parcial, sem nada
+gravado no banco:
+
+| Situação | Qtd. |
+|---|---|
+| ENCONTRADO (mesmo trabalho, com o docente) | 42 (30 com resumo) |
+| SEM_O_DOCENTE (mesmo título, docente não aparece entre os autores) | 42 |
+| NAO_ENCONTRADO | 381 |
+| ERRO_BUSCA | 1 |
+| PENDENTE (busca ampla interrompida pelo limite de uso da OpenAlex) | 161 |
+
+A busca ampla trouxe resultados em 294 de 375 títulos, mas quase nenhum era o
+mesmo trabalho. **Decisão:** não esperar a liberação do limite para as 161
+pendentes, porque o ganho esperado é de 1 ou 2 trabalhos; a conferência das 84
+encontradas (aprovar ENCONTRADO, conferir SEM_O_DOCENTE) e a gravação com
+`--aplicar` ficaram para depois. Em SEM_O_DOCENTE há erros de nome da própria
+OpenAlex ("Eniel do Eniel", "José Filho", "Gabriela Laura Peixot Botelho"),
+além de autores de fato diferentes. A checagem de autoria aceita o nome
+invertido ("Dias de Azevedo Neto André", "Azevedo Neto Ad").
+
+**Pendências desta etapa (deixadas para depois, 24/10/2026).**
+1. Conferir as 84 publicações achadas na OpenAlex (aprovar as 42 ENCONTRADO com
+   `--aprovar-encontrados`, decidir as 42 SEM_O_DOCENTE) e gravar com
+   `python coleta/scholar_openalex.py --aplicar`.
+2. Opcional: buscar as 161 PENDENTE quando o limite de uso da OpenAlex liberar
+   (ganho esperado de 1 ou 2 trabalhos).
+3. Testar outras fontes de resumo com uma amostra de 50 títulos não achados na
+   OpenAlex: Semantic Scholar (busca por título, grátis) e Crossref (resumos
+   enviados pelas revistas, inclusive SciELO); CORE (repositórios, teses e
+   dissertações) como terceira opção. Medir o ganho antes de construir a busca
+   completa. Trabalhos de anais de congresso (ABES etc.) provavelmente só têm
+   resumo no site do evento.
+
 ## 4. Limitações
 
 Esta seção reúne todos os problemas encontrados ou previstos na etapa. O quadro
 geral abaixo lista cada um em tópicos, com exemplo, efeito e situação. As
-subseções 4.1 a 4.15, em seguida, trazem o detalhamento dos casos observados.
+subseções 4.1 a 4.16, em seguida, trazem o detalhamento dos casos observados.
 
 Situação de cada item:
 
@@ -737,6 +1252,17 @@ Situação de cada item:
   - Efeito: risco de indicar um docente por uma competência que ele não tem. É
     o erro mais grave para o propósito da ferramenta.
   - Situação: parcial.
+
+- **G6. Produção no Lattes muito maior que na base, nos docentes com poucas
+  publicações.**
+  - Exemplo: Renê Medeiros de Souza tem 3 publicações na base; no Escavador, que
+    replica o Lattes, aparecem muitos títulos a mais.
+  - Efeito: o perfil de competências desses docentes mostra só uma parte da
+    produção, e a ferramenta tende a indicá-los menos do que a competência real
+    justificaria.
+  - Situação: em aberto. A diferença está sendo medida na conferência manual da
+    Etapa 4 (seção 4.16). Complementar a base com o Lattes depende de decisão do
+    orientador (ponto 4 abaixo).
 
 #### H. Operação e reprodução
 
@@ -1105,6 +1631,92 @@ título é apenas o nome de uma revista.
   apareceu, o de Felipe Andrade Torres, e ele revelou um homônimo da mesma
   área.
 
+### 4.16 Diferença entre a base e o Lattes nos docentes com poucas publicações
+
+Na Etapa 4, os docentes com até 3 publicações e nenhuma confirmada pelo ORCID
+passaram por conferência manual: 30 docentes e 60 publicações, listados em
+`dados/conferir_poucas_publicacoes.csv`. O critério é de risco: com tão pouco
+material, um único trabalho de homônimo dominaria o perfil de competências.
+
+Durante a conferência, em 09/10/2026, observou-se que vários desses docentes
+têm no Lattes (consultado pelo Escavador) muito mais trabalhos do que na base.
+Para eles, a pouca produção na base é efeito da indexação da OpenAlex, e não
+de baixa produção, o que confirma a limitação G2 e a seção 4.1.
+
+Consequência para o projeto: o perfil de competências desses docentes será
+gerado a partir de uma fração da produção real, e tende a subestimá-los no
+cruzamento com as dores de mercado.
+
+Medição em andamento: para cada docente conferido, anota-se no CSV o total de
+trabalhos que aparecem no Lattes, contando só os tipos que a OpenAlex também
+cobre (artigos, trabalhos em congresso, capítulos e livros). A comparação com o
+número de publicações na base dará a cobertura da OpenAlex para esse grupo e
+será registrada nesta seção ao fim da conferência.
+
+O complemento pelo Lattes não foi feito, pelos seguintes motivos:
+
+- O Lattes e o Escavador bloqueiam a leitura automática, e a coleta automática
+  contraria os termos de uso do Escavador. O caminho viável seria a cópia manual
+  dos títulos, restrita aos docentes com poucas publicações.
+- O Lattes traz basicamente título, ano e veículo, sem resumo, o que dá menos
+  texto ao modelo que gera os perfis.
+- Os títulos teriam de ser comparados com os já presentes na base, para evitar
+  duplicatas.
+
+A favor do complemento: o Lattes é preenchido pelo próprio docente, então não
+mistura homônimos, e inclui produção técnica, patentes e trabalhos sem DOI, que
+a OpenAlex não cobre. A tabela `publicacoes` já tem a coluna `fonte`, que
+permitiria identificar esses trabalhos.
+
+### 4.17 Limites do Google Acadêmico
+
+- **Cobertura.** Só 45 dos 136 docentes têm perfil com e-mail da UFRB
+  confirmado; os demais não ganham nada com esta fonte. Um critério que use
+  dados do Google Acadêmico (por exemplo, citações no ranking) penaliza quem
+  não tem perfil; para comparar docentes, a fonte comum é a OpenAlex.
+- **Acesso.** Não há API oficial; o acesso automático foi bloqueado por CAPTCHA
+  e exigência de login, e os termos de uso do Google proíbem a coleta
+  automatizada. A coleta foi feita no navegador do usuário e não roda sozinha.
+- **Qualidade dos registros.** O próprio Google adiciona trabalhos ao perfil e
+  pode incluir trabalho de homônimo; há registros sem ano (200 das 726
+  publicações novas) ou sem veículo (306), e o mesmo trabalho às vezes aparece
+  duas vezes (versão em português e em inglês, ou evento e revista).
+- **Sem resumo.** O Google Acadêmico traz só o título, o que deixa o conteúdo
+  dessas publicações mais raso para os perfis de competência.
+- **Validação fraca para quem tem pouca base.** A regra de 2 títulos em comum
+  não funciona para docentes com 1 ou 2 publicações no banco (seção 3.14).
+- **Docentes sem perfil.** 91 dos 136 docentes não têm perfil com e-mail da
+  UFRB confirmado. A busca manual de 10 deles, os com menos publicações no
+  banco (Aline de Oliveira Moreira, Edilberto Andrade Silva, Elaine Ferreira
+  Rocha, Fabricio de Jesus Ribeiro, Heber Christiane Antunes Franca, Inacio
+  Oliveira Borges, Luciano de Santana Rocha, Silvio de Cerqueira Mazza, Sérgio
+  Santos de Jesus e Andrêssa Lima de Souza), não encontrou perfil.
+- **Lattes nem sempre localizável.** O de Camila Angélica Baum não foi
+  encontrado; nesses casos a conferência se apoiou no ORCID confirmado e nos
+  títulos em comum com o banco.
+- **Comparação só por título.** Sem resumo, a triagem por embeddings confunde
+  trabalhos diferentes de títulos parecidos (seção 3.14) e aponta como
+  "destoa" trabalhos de uma segunda linha de pesquisa do docente; por isso as
+  sugestões passaram por conferência.
+- **Perfis do Google com trabalhos de terceiros.** O caso mais grave foi o de
+  André Dias de Azevedo Neto (homônimos "AD Neto" de outras áreas).
+- **A aprovação em bloco herda os pontos cegos da triagem.** Dos 602 itens sem
+  apontamento, 3 (0,5%) não eram trabalhos (nome de evento ou revista com
+  título longo). A regra foi ampliada, mas outros tipos de lixo que nenhuma
+  regra conhece podem ter passado.
+- **A OpenAlex não cobre a maior parte do que o Google Acadêmico trouxe.**
+  Das 627 publicações novas, só cerca de 84 (13%) foram achadas na OpenAlex pelo
+  título, e só cerca de 57 delas com resumo. O restante são sobretudo trabalhos
+  em anais de congressos brasileiros (por exemplo, os da ABES), revistas locais
+  e trabalhos sem DOI. Por isso cerca de 540 publicações ficam só com o título,
+  o que deixa o conteúdo delas raso nos perfis de competência. A busca por
+  título também depende do limite diário de uso da chave da OpenAlex.
+- **Orientações misturadas às publicações.** O Google atribui ao orientador
+  trabalhos de alunos; foram separados na tabela `orientacoes`.
+- **Por que a OpenAlex tem pouco de alguns docentes.** A comparação mostrou que
+  muito do que falta saiu em anais de eventos brasileiros, revistas locais da
+  UFRB e trabalhos sem DOI, que a OpenAlex cobre mal (ver 4.1 e 4.16).
+
 ## 5. Como restaurar as decisões se o banco se perder
 
 1. Recriar o banco e os docentes:
@@ -1152,7 +1764,7 @@ with sqlite3.connect("dados/ponte_cetec.db") as conn:
         )
 ```
 
-4. Registrar as exclusões da auditoria (seção 3.8), antes de baixar as
+4. Registrar as exclusões da auditoria e das conferências (seções 3.8, 3.10 e 3.12), antes de baixar as
    publicações. O comando funciona mesmo com o banco ainda sem os trabalhos:
    ele só os põe na lista de bloqueio. Antes, conferir o `docente_id` de cada
    um pelo nome:
@@ -1170,6 +1782,21 @@ python coleta/openalex_publicacoes.py --excluir 81 W2610545354
 python coleta/openalex_publicacoes.py --excluir 53 W7219242552
 python coleta/openalex_publicacoes.py --excluir 109 W2795120010 W4306178141
 python coleta/openalex_publicacoes.py --excluir 21 W7120482577
+python coleta/openalex_publicacoes.py --excluir 3 W4402031261 W4402258293
+python coleta/openalex_publicacoes.py --excluir 133 W7135167129
+python coleta/openalex_publicacoes.py --excluir 112 W4404139295
+python coleta/openalex_publicacoes.py --excluir 63 W2065899962
+python coleta/openalex_publicacoes.py --excluir 134 W2587400349 W7215165680
+python coleta/openalex_publicacoes.py --excluir 84 W3021502267
+python coleta/openalex_publicacoes.py --excluir 41 W7214802054
+python coleta/openalex_publicacoes.py --excluir 43 W4290988382 W4402126039
+python coleta/openalex_publicacoes.py --excluir 106 W3008540800
+python coleta/openalex_publicacoes.py --excluir 6 W2336706901
+python coleta/openalex_publicacoes.py --excluir 93 W2621195124
+python coleta/openalex_publicacoes.py --excluir 96 W2893298749 W2292545202
+python coleta/openalex_publicacoes.py --excluir 66 W4416254858
+python coleta/openalex_publicacoes.py --excluir 40 W4367058711
+python coleta/openalex_publicacoes.py --excluir 106 W4396496919
 ```
 
 5. Baixar as publicações e refazer as inclusões manuais da seção 3.6, também
@@ -1202,6 +1829,23 @@ python coleta/orcid.py --aplicar
 O ORCID de Vinicius Santos da Silva (docente 82) foi obtido do Lattes e deve
 ser gravado à mão antes da recuperação, como na terceira linha.
 
+7. Reaplicar a triagem de conteúdo (seção 3.11). O CSV conferido guarda todas
+   as decisões, inclusive os títulos corrigidos. A análise preserva o que já
+   foi conferido; casos novos aparecem sem marcação e precisam de revisão:
+
+```bash
+python coleta/triagem_conteudo.py
+python coleta/triagem_conteudo.py --aplicar
+```
+
+8. Reaplicar as repetições da triagem por semelhança (seção 3.12). O Ollama só
+   é necessário se os vetores de `dados/embeddings/` tiverem se perdido:
+
+```bash
+python coleta/triagem_embeddings.py
+python coleta/triagem_embeddings.py --aplicar
+```
+
 ## 6. Arquivos da etapa
 
 | Arquivo | Papel |
@@ -1211,5 +1855,29 @@ ser gravado à mão antes da recuperação, como na terceira linha.
 | `coleta/openalex_publicacoes.py` | Baixa as publicações; modos `--refazer`, `--mistos`, `--incluir`, `--excluir`, `--perfis` e `--rejeitar-perfil` |
 | `coleta/openalex_auditoria.py` | Aponta trabalhos em área minoritária do docente; não altera o banco |
 | `coleta/orcid.py` | Segunda via: recupera, valida e aplica os ORCIDs; modos `--recuperar`, `--aplicar`, `--confirmar` e `--rejeitar` |
+| `coleta/conferir_coautores.py` | Etapa 4: autores e afiliações dos trabalhos da conferência manual; não altera o banco |
+| `coleta/triagem_conteudo.py` | Etapa 4: aponta repetidos, títulos e resumos sem conteúdo; modo `--aplicar` grava em `publicacoes_ajustes` |
 | `dados/openalex_vinculos.csv` | Status final de cada perfil, versionado |
+| `dados/conferir_poucas_publicacoes.csv` | Etapa 4: decisões da conferência dos docentes com poucas publicações (seção 3.10) |
+| `dados/triagem_conteudo.csv` | Etapa 4: decisões da triagem de conteúdo (seção 3.11) |
+| `coleta/triagem_embeddings.py` | Etapa 4: compara as publicações de cada docente por semelhança de conteúdo; não altera o banco |
+| `dados/triagem_homonimos.csv` | Etapa 4: decisões da triagem de homônimos (seção 3.12) |
+| `dados/triagem_similares.csv` | Etapa 4: pares que podem ser o mesmo trabalho (seção 3.12) |
+| `dados/embeddings/` | vetores guardados das publicações, fora do Git, recalculáveis |
+| `coleta/gerar_perfis.py` | Etapa 4: piloto dos perfis de competência com o Ollama; não altera o banco |
+| `dados/perfis_piloto/` | Etapa 4: resultados do piloto, um JSON e um CSV por variante (seção 3.13) |
+| `coleta/scholar.py` | Google Acadêmico: cruzamento com o CETEC e validação pelos títulos; não altera o banco (seção 3.14) |
+| `dados/scholar_perfis_ufrb.csv` | 484 perfis do Google Acadêmico com e-mail da UFRB |
+| `dados/scholar_vinculos.csv` | Sugestões de vínculo docente–perfil e a decisão de coletar |
+| `dados/scholar_metricas.csv` | Citações, índice h e i10 de cada perfil coletado |
+| `dados/scholar_publicacoes.csv` | 1.515 publicações dos 45 perfis |
+| `dados/scholar_validacao.csv` | Resultado do `validar` e decisões manuais |
+| `dados/scholar_publicacoes_novas.csv` | Publicações fora do banco, de perfis confirmados, para conferência |
+| `coleta/triagem_scholar.py` | Triagem item a item das publicações novas do Google Acadêmico; só o modo `--aplicar` grava no banco (seção 3.14) |
+| `dados/triagem_scholar.csv` | Apontamentos, sugestões e decisões de cada publicação nova |
+| `dados/excluidas_titulos.csv` | Títulos, buscados na OpenAlex, dos trabalhos já excluídos como homônimos |
+| `coleta/scholar_openalex.py` | Procura na OpenAlex o resumo das publicações do Google Acadêmico; só o modo `--aplicar` grava no banco (seção 3.14) |
+| `dados/scholar_openalex.csv` | Situação de cada publicação na busca e a decisão (usar ou nao_usar) |
+| `dados/scholar_openalex_cache.json` | Respostas da OpenAlex guardadas, para retomar a busca sem repetir chamadas |
+| `dados/ponte_cetec_antes_scholar.db` | Cópia do banco antes da gravação das publicações do Google Acadêmico, fora do Git |
 | `dados/ponte_cetec.db` | Banco local, fora do Git |
